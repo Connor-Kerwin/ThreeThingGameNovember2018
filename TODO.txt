@@ -1,0 +1,28 @@
+- Main & Management
+- Pool
+- State Machine (Listener support)
+- Billboard
+- Camera : Movement (for transition) and Rotation (controlled by mouse)
+- Score
+- Game state (Menu / Game / Death screen)
+- Enemy spawning (Multi-pooled, bonus rounds for special enemies like knuckles)
+- Projectiles, enemy and player
+- Player vitals (Health, special attack charge?)
+- Enemy drop-pods (Model/Image needed)
+- Enemies (Model/Images for all enemies)
+- Pathing (Do enemies just look at centre and move to it?)
+- Level geometry (Flat-earth model)
+- Highscores (Save/Load from player prefs)
+
+Menu:
+- Play
+- Highscore? If enough time
+- Exit
+
+Death:
+- Score
+- Highscore? If enough time
+
+NOTES:
+- Use a single scene with a canvas which appears/disappears
+- Management system auto-cleans and spawns upon game state change.
