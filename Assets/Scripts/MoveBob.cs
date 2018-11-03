@@ -17,7 +17,7 @@ public class MoveBob : MonoBehaviour
     {
         bobValue += Time.deltaTime;
 
-        float bob = Mathf.Sin(bobValue * bobRate) * bobHeight;
+        float bob = (Mathf.Sin(bobValue * bobRate) * bobHeight) + (bobHeight * 0.5f) + 0.5f;
         Vector3 lPos = target.localPosition;
         target.localPosition = new Vector3(lPos.x, bob, lPos.z);
     }

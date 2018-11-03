@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 114968776463521806}
   - component: {fileID: 114589009446855134}
   - component: {fileID: 136662791863044724}
+  - component: {fileID: 114409934086874554}
   m_Layer: 0
   m_Name: KNUCKLES
   m_TagString: Untagged
@@ -83,7 +84,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1495888066304722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9378278, y: -1.1767801e-19, z: 0.26498732}
+  m_LocalPosition: {x: -58.659817, y: 1.8167254e-17, z: -40.909023}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4462372586319472}
@@ -171,6 +172,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f82f9a85792d5d4d87ce4e7efb94fc9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &114409934086874554
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1495888066304722}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bc9248bf488d534f89f6a667eb62d60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 4462372586319472}
+  bobRate: 24
+  bobHeight: 0.05
 --- !u!114 &114589009446855134
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -186,6 +201,13 @@ MonoBehaviour:
   health:
     maxHealth: 100
     curHealth: 100
+  enemyType: 0
+  rangeLimit: 2.5
+  meleeRange: 0.5
+  damagePerAttack: 1
+  rangedAttackRate: 0.5
+  moveSpeed: 3
+  flipOnSpawn: 1
 --- !u!114 &114968776463521806
 MonoBehaviour:
   m_ObjectHideFlags: 1
