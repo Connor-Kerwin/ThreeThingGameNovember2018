@@ -169,14 +169,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnable: {fileID: 114968776463521806}
   health:
-    maxHealth: 100
-    curHealth: 100
+    maxHealth: 1
+    curHealth: 1
   enemyType: 0
   rangeLimit: 2.5
   meleeRange: 0.5
   damagePerAttack: 1
   rangedAttackRate: 0.5
-  moveSpeed: 0.5
+  moveSpeed: 5
   flipOnSpawn: 1
 --- !u!114 &114968776463521806
 MonoBehaviour:
