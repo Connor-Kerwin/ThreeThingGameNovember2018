@@ -9,6 +9,7 @@ public class Main : MonoBehaviour
     private ManagerStore managerStore;
 
     public bool Initialized { get { return initialized; } }
+    public ManagerStore ManagerStore { get { return managerStore; } }
     public static Main Instance { get { return instance; } }
 
     private void Awake()

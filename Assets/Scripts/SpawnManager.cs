@@ -113,9 +113,9 @@ public class SpawnManager : Manager
             {
                 Debug.Log("Registered spawnable " + spawnable.ID);
             }
-            else // Catch failure
+            else // Catch failure through duplicate entry
             {
-                Debug.LogError("Failed to register spawnable " + spawnable.ID);
+                Debug.LogError("Failed to register spawnable, duplicate entry is " + spawnable.ID);
                 flag = false;
             }
         }
@@ -131,7 +131,7 @@ public class SpawnManager : Manager
     public bool Spawn(string id, out Spawnable item)
     {
         SpawnEntry entry;
-        if(spawnStore.GetStore(id, out entry))
+        if(spawnStore.GetStore(id, out entry)) // Store found
         {
             item = entry.Get();
             return true;
@@ -143,10 +143,35 @@ public class SpawnManager : Manager
         }
     }
 
+    public bool SpawnAt(string id, Vector3 position, out Spawnable item)
+    {
+        return SpawnAt(id, position, Quaternion.Euler(Vector3.zero), out item);
+    }
+
+    public bool SpawnAt(string id, Vector3 position, Vector3 rotation, out Spawnable item)
+    {
+        return SpawnAt(id, position, Quaternion.Euler(rotation), out item);
+    }
+
+    public bool SpawnAt(string id, Vector3 position, Quaternion rotation, out Spawnable item)
+    {
+        if(Spawn(id, out item))
+        {
+            item.transform.position = position;
+            item.transform.rotation = rotation;
+            return true;
+        }
+        else // Failure to spawn
+        {
+            return false;
+        }
+    }
+
+
     public bool Store(Spawnable item)
     {
         SpawnEntry entry;
-        if (spawnStore.GetStore(item.ID, out entry))
+        if (spawnStore.GetStore(item.ID, out entry)) // Store found
         {
             entry.Store(item);
             return true;
