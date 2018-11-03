@@ -2,15 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpawnManager : MonoBehaviour {
+public class SpawnManager : Manager
+{
+    [SerializeField]
+    private List<Spawnable> prefabs;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public override bool Initialize()
+    {
+        return false;
+    }
 }

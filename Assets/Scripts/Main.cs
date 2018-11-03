@@ -61,7 +61,7 @@ public class Main : MonoBehaviour
         {
             if (!manager.Initialize())
             {
-                Debug.LogError("Manager " + manager.GetType() + " failed to initialize");
+                Debug.LogError(manager.GetType() + " failed to initialize");
                 flag = false;
             }
         }
