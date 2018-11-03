@@ -49,6 +49,13 @@ public class WaveCache
         return spawnQueue.Count == 0 && activeList.Count == 0;
     }
 
+    private void OnDespawn(object sender, SpawnArgs e)
+    {
+        // Remove the spawnable and unregister from it
+        activeList.Remove(e.Spawnable);
+        e.Spawnable.OnDespawn -= OnDespawn;
+    }
+
     public bool GetNextEnemy(out Spawnable enemy)
     {
         if (spawnQueue.Count > 0) // Is there something to spawn?
@@ -63,6 +70,8 @@ public class WaveCache
             // Try to spawn the enemy
             if(spawnManager.Spawn(entry, out enemy))
             {
+                // Register to the spawnables despawn
+                enemy.OnDespawn += OnDespawn;
                 activeList.Add(enemy);
                 return true;
             }

@@ -414,7 +414,7 @@ MonoBehaviour:
   waves:
   - enemies:
     - id: ENEMY_A
-      count: 100
+      count: 10
   spawnRate: 0.5
   enemiesPerCycle: 5
   spawnRadius: 50

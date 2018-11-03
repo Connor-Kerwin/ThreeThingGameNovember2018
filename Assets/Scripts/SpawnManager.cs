@@ -140,6 +140,7 @@ public class SpawnManager : Manager
         if(spawnStore.GetStore(id, out entry)) // Store found
         {
             item = entry.Get();
+            item.Spawn();
             return true;
         }
         else // Store not found for given ID
@@ -180,6 +181,7 @@ public class SpawnManager : Manager
         if (spawnStore.GetStore(item.ID, out entry)) // Store found
         {
             item.transform.position = new Vector3(0, -100, 0);
+            item.Despawn();
             entry.Store(item);
             return true;
         }
