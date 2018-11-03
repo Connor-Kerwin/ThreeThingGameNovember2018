@@ -8,24 +8,40 @@ public class PodManager : Manager
     private string podID;
 
     private List<Pod> pods;
+    private SpawnManager spawnManager;
+
+    public override bool Link()
+    {
+        // Fetch the spawn manager
+        Main main = Main.Instance;
+        ManagerStore managerStore = main.ManagerStore;
+        spawnManager = managerStore.Get<SpawnManager>();
+
+        return true;
+    }
 
     private void Awake()
     {
         pods = new List<Pod>();
     }
 
+    public void CleanPod(Pod pod)
+    {
+        Spawnable spawnable = pod.GetComponent<Spawnable>();
+        if(spawnable != null)
+        {
+            spawnManager.Store(spawnable);
+        }
+    }
+
     private Pod GetPod()
     {
-        // Fetch the spawn manager
-        Main main = Main.Instance;
-        ManagerStore managerStore = main.ManagerStore;
-        SpawnManager spawnManager = managerStore.Get<SpawnManager>();
-
         Spawnable instance;
         if (spawnManager.Spawn(podID, out instance))
         {
             // ASSUMPTION THAT POD WILL BE ON THE GIVEN SPAWNABLE
             Pod pod = instance.GetComponent<Pod>();
+
             return pod;
         }
         else // Spawnable not found

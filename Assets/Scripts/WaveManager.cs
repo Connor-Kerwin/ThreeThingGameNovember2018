@@ -128,6 +128,8 @@ public class WaveManager : Manager
     [SerializeField]
     private float spawnRate = 0.1f;
     [SerializeField]
+    private int enemiesPerCycle = 2;
+    [SerializeField]
     private float spawnRadius = 2.5f;
     [SerializeField]
     private float spawnHeight = 2.0f;
@@ -181,14 +183,18 @@ public class WaveManager : Manager
     
     private void SpawnEnemies()
     {
+        for(int i = 0; i < enemiesPerCycle; i++)
+        { 
         Spawnable enemy;
-        if(waveCache.GetNextEnemy(out enemy)) // Was an enemy found?
-        {
-            Vector3 pos = GetSpawnPosition();
-            enemy.transform.position = pos;
+            if (waveCache.GetNextEnemy(out enemy)) // Was an enemy found?
+            {
+                Vector3 pos = GetSpawnPosition();
+                enemy.transform.position = pos;
 
-            // Spawn a pod for the enemy
-            Pod pod = podManager.SpawnPod(pos, enemy.transform);
+                // Spawn a pod for the enemy
+                Pod pod = podManager.SpawnPod(pos, enemy.transform);
+                pod.Launch(pos);
+            }
         }
     }
 

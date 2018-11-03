@@ -179,6 +179,7 @@ public class SpawnManager : Manager
         SpawnEntry entry;
         if (spawnStore.GetStore(item.ID, out entry)) // Store found
         {
+            item.transform.position = new Vector3(0, -100, 0);
             entry.Store(item);
             return true;
         }

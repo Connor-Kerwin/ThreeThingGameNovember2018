@@ -414,12 +414,11 @@ MonoBehaviour:
   waves:
   - enemies:
     - id: ENEMY_A
-      count: 10
-    - id: ENEMY_A
-      count: 10
-  spawnRate: 0.1
-  spawnRadius: 6.78
-  spawnHeight: 2
+      count: 100
+  spawnRate: 0.5
+  enemiesPerCycle: 5
+  spawnRadius: 50
+  spawnHeight: 50
 --- !u!114 &1634755923
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -470,6 +469,10 @@ Prefab:
     - target: {fileID: 4845283599616754, guid: ff9c25a6154e2a748a04503a08b19329, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1785435006643460, guid: ff9c25a6154e2a748a04503a08b19329, type: 2}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ff9c25a6154e2a748a04503a08b19329, type: 2}

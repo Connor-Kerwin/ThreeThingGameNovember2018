@@ -155,10 +155,11 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
-  fallTime: 2
-  falling: 1
+  fallTime: 1
+  particles: {fileID: 198822182515830824}
+  falling: 0
   targetY: 0
-  startY: 21.7
+  startY: 0
   time: 0
 --- !u!198 &198822182515830824
 ParticleSystem:
