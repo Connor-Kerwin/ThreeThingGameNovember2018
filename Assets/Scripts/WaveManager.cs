@@ -135,6 +135,7 @@ public class WaveManager : Manager
     private float spawnTime = 0.0f;
     private int waveIndex;
     private WaveCache waveCache;
+    private PodManager podManager;
 
     public int MaxWaveIndex { get { return waves.Count - 1; } }
 
@@ -157,6 +158,7 @@ public class WaveManager : Manager
 
     private void CheckForNextWave()
     {
+        // Check whether the cache has no more items to spawn and all active are destroyed
         if(waveCache.HasFinishedWave())
         {
             NextWave();
@@ -184,6 +186,9 @@ public class WaveManager : Manager
         {
             Vector3 pos = GetSpawnPosition();
             enemy.transform.position = pos;
+
+            // Spawn a pod for the enemy
+            Pod pod = podManager.SpawnPod(pos, enemy.transform);
         }
     }
 
@@ -244,5 +249,13 @@ public class WaveManager : Manager
             return false;
         }
     }
-    
+
+    public override bool Link()
+    {
+        Main main = Main.Instance;
+        ManagerStore managerStore = main.ManagerStore;
+        podManager = managerStore.Get<PodManager>();
+
+        return true;
+    }
 }
