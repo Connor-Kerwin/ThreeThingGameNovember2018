@@ -3,6 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public enum SpawnType
+{
+    Standard,
+    Enemy
+}
+
 public class SpawnArgs : EventArgs
 {
     private Spawnable spawnable;
@@ -19,11 +25,14 @@ public class Spawnable : MonoBehaviour {
 
     [SerializeField]
     private string id;
+    [SerializeField]
+    private SpawnType spawnType;
 
     public EventHandler<SpawnArgs> OnDespawn;
     public EventHandler<SpawnArgs> OnSpawn;
 
     public string ID { get { return id; } }
+    public SpawnType SpawnType { get { return spawnType; } }
 
     public void Spawn()
     {

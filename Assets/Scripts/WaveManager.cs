@@ -34,27 +34,23 @@ public class WaveCache
 {
     [SerializeField]
     private Queue<string> spawnQueue;
-    [SerializeField]
-    private List<Spawnable> activeList;
 
     public WaveCache()
     {
         spawnQueue = new Queue<string>();
-        activeList = new List<Spawnable>();
     }
 
-    public bool HasFinishedWave()
+    public bool HasFinishedSpawning()
     {
-        // Finished wave is when all objects have spawned and all active have despawned
-        return spawnQueue.Count == 0 && activeList.Count == 0;
+        return spawnQueue.Count == 0;
     }
 
-    private void OnDespawn(object sender, SpawnArgs e)
-    {
-        // Remove the spawnable and unregister from it
-        activeList.Remove(e.Spawnable);
-        e.Spawnable.OnDespawn -= OnDespawn;
-    }
+    //private void OnDespawn(object sender, SpawnArgs e)
+    //{
+    //    // Remove the spawnable and unregister from it
+    //    activeList.Remove(e.Spawnable);
+    //    e.Spawnable.OnDespawn -= OnDespawn;
+    //}
 
     public bool GetNextEnemy(out Spawnable enemy)
     {
@@ -71,8 +67,8 @@ public class WaveCache
             if(spawnManager.Spawn(entry, out enemy))
             {
                 // Register to the spawnables despawn
-                enemy.OnDespawn += OnDespawn;
-                activeList.Add(enemy);
+                //enemy.OnDespawn += OnDespawn;
+                //activeList.Add(enemy);
                 return true;
             }
             else // Enemy isn't valid
@@ -96,14 +92,14 @@ public class WaveCache
         SpawnManager spawnManager = managerStore.Get<SpawnManager>();
 
         // Iterate and despawn all objects
-        int count = activeList.Count;
-        for(int i = 0; i < activeList.Count; i++)
-        {
-            Spawnable spawnable = activeList[0];
-            Despawn(spawnManager, spawnable);
-        }
+        //int count = activeList.Count;
+        //for(int i = 0; i < activeList.Count; i++)
+        //{
+        //    Spawnable spawnable = activeList[0];
+        //    Despawn(spawnManager, spawnable);
+        //}
 
-        Debug.Log("Cleaned up " + count);
+        //Debug.Log("Cleaned up " + count);
 
         //foreach(Spawnable instance in activeList)
         //{
@@ -157,6 +153,7 @@ public class WaveManager : Manager, IStateMachineListener<GameState>
     private int waveIndex;
     private WaveCache waveCache;
     private PodManager podManager;
+    private SpawnManager spawnManager;
 
     public int MaxWaveIndex { get { return waves.Count - 1; } }
 
@@ -184,9 +181,38 @@ public class WaveManager : Manager, IStateMachineListener<GameState>
     private void CheckForNextWave()
     {
         // Check whether the cache has no more items to spawn and all active are destroyed
-        if(waveCache.HasFinishedWave())
+        if(waveCache.HasFinishedSpawning() && !DoEnemiesRemain())
         {
             NextWave();
+        }
+    }
+
+    private bool DoEnemiesRemain()
+    {
+        List<Spawnable> active = spawnManager.Active;
+
+        foreach (Spawnable s in active)
+        {
+            if (s.SpawnType == SpawnType.Enemy)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void RemoveActiveEnemies()
+    {
+        List<Spawnable> active = spawnManager.Active;
+        int count = active.Count;
+        for(int i = count-1; i >= 0; i--) // Backwards iteration due to deletion
+        {
+            Spawnable s = active[i];
+            if(s.SpawnType == SpawnType.Enemy)
+            {
+                spawnManager.Store(s);
+            }
         }
     }
 
@@ -206,9 +232,9 @@ public class WaveManager : Manager, IStateMachineListener<GameState>
     
     private void SpawnEnemies()
     {
-        for(int i = 0; i < enemiesPerCycle; i++)
-        { 
-        Spawnable enemy;
+        for (int i = 0; i < enemiesPerCycle; i++)
+        {
+            Spawnable enemy;
             if (waveCache.GetNextEnemy(out enemy)) // Was an enemy found?
             {
                 Vector3 pos = GetSpawnPosition();
@@ -243,6 +269,9 @@ public class WaveManager : Manager, IStateMachineListener<GameState>
 
         // Remove all items to be spawned
         waveCache.Clear();
+
+        // Force remove all active enemies
+        RemoveActiveEnemies();
     }
 
     private void StartWave()
@@ -284,6 +313,7 @@ public class WaveManager : Manager, IStateMachineListener<GameState>
         Main main = Main.Instance;
         ManagerStore managerStore = main.ManagerStore;
         podManager = managerStore.Get<PodManager>();
+        spawnManager = managerStore.Get<SpawnManager>();
 
         StateManager stateManager = managerStore.Get<StateManager>();
         stateManager.AddListener(this);
