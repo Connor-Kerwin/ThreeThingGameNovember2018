@@ -57,7 +57,7 @@ GameObject:
   - component: {fileID: 114589009446855134}
   - component: {fileID: 136662791863044724}
   m_Layer: 0
-  m_Name: KNUCKLES
+  m_Name: TROLLFACE
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -83,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1495888066304722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.9378278, y: -1.1767801e-19, z: 0.26498732}
+  m_LocalPosition: {x: 5.6410418, y: -1.182683e-19, z: 0.2663165}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4462372586319472}
@@ -119,7 +119,7 @@ MeshRenderer:
   m_ReflectionProbeUsage: 1
   m_RenderingLayerMask: 4294967295
   m_Materials:
-  - {fileID: 2100000, guid: 38c8b87fb4518bf4d9a24e5dc68223ef, type: 2}
+  - {fileID: 2100000, guid: 216d17fea120ebe48bc24c667e176940, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -197,7 +197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1577a3db1dd4b664fbe0af0c1a838fa6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  id: KNUCKLES
+  id: TROLLFACE
   spawnType: 1
 --- !u!136 &136662791863044724
 CapsuleCollider:
