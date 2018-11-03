@@ -1,10 +1,10 @@
-- Main & Management
-- Pool
+- Main & Management (Typical management, only need managers, no systems)
+- Pool (Custom delegate to instantiate instances automatically, standard methodology)
 - State Machine (Listener support)
-- Billboard
-- Camera : Movement (for transition) and Rotation (controlled by mouse)
-- Score
-- Game state (Menu / Game / Death screen)
+- Billboard (Face enemies towards camera at all times
+- Camera : Movement (for transition at beginning) and Rotation (controlled by mouse)
+- Score (Display on canvas UI)
+- Game state (Menu / Game / Death screen / POSSIBLY: Highscore screen)
 - Enemy spawning (Multi-pooled, bonus rounds for special enemies like knuckles)
 - Projectiles, enemy and player
 - Player vitals (Health, special attack charge?)
@@ -13,6 +13,8 @@
 - Pathing (Do enemies just look at centre and move to it?)
 - Level geometry (Flat-earth model)
 - Highscores (Save/Load from player prefs)
+- Minimap (Based on canvas with blips for enemies pulled from enemy management system)
+- UI (3 OR 4 canvases, Menu, Game, Death screen. Manager toggles them on and off based upon game state. May need 4th for generic highscore display)
 
 Menu:
 - Play
@@ -24,5 +26,5 @@ Death:
 - Highscore? If enough time
 
 NOTES:
-- Use a single scene with a canvas which appears/disappears
+- Use a single scene with canvases which appears/disappear.
 - Management system auto-cleans and spawns upon game state change.
