@@ -8,25 +8,31 @@ public interface ISpawnEntry
     Spawnable Prefab { get; }
 }
 
-public class SpawnEntry<T> : ISpawnEntry where T : Spawnable
+public class SpawnEntry
 {
     private Spawnable prefab;
-    private Pool<T> pool;
+    private Pool<Spawnable> pool;
+    
+    public string ID { get { return prefab.ID; } }
 
-    public Spawnable Prefab { get { return prefab; } }
-
-    public SpawnEntry(Spawnable prefab, Func<T> create)
+    public SpawnEntry(Spawnable prefab)
     {
         this.prefab = prefab;
-        pool = new Pool<T>(create);
+        pool = new Pool<Spawnable>(Spawn);
     }
 
-    public T Get()
+    private Spawnable Spawn()
+    {
+        Spawnable instance = GameObject.Instantiate<Spawnable>(prefab);
+        return instance;
+    }
+
+    public Spawnable Get()
     {
         return pool.Get();
     }
 
-    public void Store(T item)
+    public void Store(Spawnable item)
     {
         pool.Store(item);
     }
@@ -34,46 +40,47 @@ public class SpawnEntry<T> : ISpawnEntry where T : Spawnable
 
 public class SpawnStore
 {
-    private List<ISpawnEntry> entries;
+    private List<SpawnEntry> entries;
 
     public SpawnStore()
     {
-        entries = new List<ISpawnEntry>();
+        entries = new List<SpawnEntry>();
     }
 
-    public void AddStore<T>(Spawnable prefab, Func<T> create) where T : Spawnable
+    public bool AddStore(Spawnable prefab)
     {
         // Try to get the store before adding a new one
-        SpawnEntry<T> spawnEntry = GetStore<T>();
-        if(spawnEntry == null)
+        SpawnEntry spawnEntry;
+        if (!GetStore(prefab.ID, out spawnEntry))
         {
-            // Create the store and get it
-            spawnEntry = CreateStore<T>(prefab, create);
+            spawnEntry = CreateStore(prefab);
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 
-    public SpawnEntry<T> GetStore<T>() where T : Spawnable
-    {
-        return GetStore<T>(typeof(T));
-    }
-
-    private SpawnEntry<T> GetStore<T>(Type type) where T : Spawnable
+    public bool GetStore(string id, out SpawnEntry outEntry)
     {
         // Iterate all entries
-        foreach(ISpawnEntry entry in entries)
+        foreach(SpawnEntry entry in entries)
         {
-            if(entry.GetType() == type) // Check for a matching type
+            if(entry.ID == id) // Check for a matching ID
             {
-                return entry as SpawnEntry<T>;
+                outEntry = entry;
+                return true;
             }
         }
 
-        return null;
+        outEntry = null;
+        return false;
     }
 
-    private SpawnEntry<T> CreateStore<T>(Spawnable prefab, Func<T> create) where T : Spawnable
+    private SpawnEntry CreateStore(Spawnable prefab)
     {
-        SpawnEntry<T> spawnEntry = new SpawnEntry<T>(prefab, create);
+        SpawnEntry spawnEntry = new SpawnEntry(prefab);
         entries.Add(spawnEntry);
         return spawnEntry;
     }
@@ -102,41 +109,49 @@ public class SpawnManager : Manager
 
         foreach(Spawnable spawnable in prefabs)
         {
-
+            if(Register(spawnable)) // Catch successful registration
+            {
+                Debug.Log("Registered spawnable " + spawnable.ID);
+            }
+            else // Catch failure
+            {
+                Debug.LogError("Failed to register spawnable " + spawnable.ID);
+                flag = false;
+            }
         }
 
         return flag;
     }
 
-    public void Register<T>(Spawnable prefab, Func<T> create) where T : Spawnable
+    public bool Register(Spawnable prefab)
     {
-        spawnStore.AddStore<T>(prefab, create);
+        return spawnStore.AddStore(prefab);
     }
 
-    public bool Spawn<T>(out T item) where T : Spawnable
+    public bool Spawn(string id, out Spawnable item)
     {
-        SpawnEntry<T> entry = spawnStore.GetStore<T>();
-        if(entry != null) // Was the entry found
+        SpawnEntry entry;
+        if(spawnStore.GetStore(id, out entry))
         {
             item = entry.Get();
             return true;
         }
-        else // Entry not found
+        else // Store not found for given ID
         {
             item = null;
             return false;
         }
     }
 
-    public bool Store<T>(T item) where T : Spawnable
+    public bool Store(Spawnable item)
     {
-        SpawnEntry<T> entry = spawnStore.GetStore<T>();
-        if (entry != null) // Was the entry found
+        SpawnEntry entry;
+        if (spawnStore.GetStore(item.ID, out entry))
         {
             entry.Store(item);
             return true;
         }
-        else // Entry not found
+        else // Store not found for given item
         {
             return false;
         }
