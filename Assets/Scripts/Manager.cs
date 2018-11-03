@@ -2,15 +2,15 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Manager : MonoBehaviour {
+public class Manager : MonoBehaviour
+{
+    public virtual bool Initialize()
+    {
+        return true;
+    }
 
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public virtual bool Link()
+    {
+        return true;
+    }
 }
