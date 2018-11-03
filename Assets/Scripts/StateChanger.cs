@@ -4,6 +4,14 @@ using UnityEngine;
 
 public class StateChanger : MonoBehaviour
 {
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            OpenDeath();
+        }
+    }
+
     public void OpenMenu()
     {
         Transition(GameState.Menu);

@@ -96,10 +96,19 @@ public class WaveCache
         SpawnManager spawnManager = managerStore.Get<SpawnManager>();
 
         // Iterate and despawn all objects
-        foreach(Spawnable instance in activeList)
+        int count = activeList.Count;
+        for(int i = 0; i < activeList.Count; i++)
         {
-            Despawn(spawnManager, instance);
+            Spawnable spawnable = activeList[0];
+            Despawn(spawnManager, spawnable);
         }
+
+        Debug.Log("Cleaned up " + count);
+
+        //foreach(Spawnable instance in activeList)
+        //{
+        //    Despawn(spawnManager, instance);
+        //}
     }
 
     public void Clear()
@@ -130,7 +139,7 @@ public class WaveCache
     }
 }
 
-public class WaveManager : Manager
+public class WaveManager : Manager, IStateMachineListener<GameState>
 {
     [SerializeField]
     private List<WaveEntry> waves;
@@ -143,6 +152,7 @@ public class WaveManager : Manager
     [SerializeField]
     private float spawnHeight = 2.0f;
 
+    private bool alive;
     private float spawnTime = 0.0f;
     private int waveIndex;
     private WaveCache waveCache;
@@ -153,18 +163,22 @@ public class WaveManager : Manager
     private void Awake()
     {
         waveCache = new WaveCache();
+        alive = false;
     }
 
     private void Update()
     {
-        spawnTime += Time.deltaTime;
-        if(spawnTime >= spawnRate)
+        if (alive)
         {
-            spawnTime = 0.0f;
-            SpawnEnemies();
-        }
+            spawnTime += Time.deltaTime;
+            if (spawnTime >= spawnRate)
+            {
+                spawnTime = 0.0f;
+                SpawnEnemies();
+            }
 
-        CheckForNextWave();
+            CheckForNextWave();
+        }
     }
 
     private void CheckForNextWave()
@@ -271,6 +285,31 @@ public class WaveManager : Manager
         ManagerStore managerStore = main.ManagerStore;
         podManager = managerStore.Get<PodManager>();
 
+        StateManager stateManager = managerStore.Get<StateManager>();
+        stateManager.AddListener(this);
+
         return true;
+    }
+
+    public void OnStateChanged(GameState previous, GameState current)
+    {
+        switch (current)
+        {
+            case GameState.Menu:
+            case GameState.DeathScreen:
+
+                CleanCurrentWave();
+                SetWave(0);
+                alive = false;
+
+                break;
+            case GameState.Playing:
+
+                CleanCurrentWave();
+                SetWave(0);
+                alive = true;
+
+                break;
+        }
     }
 }

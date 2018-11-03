@@ -97,11 +97,15 @@ public class SpawnManager : Manager
     [SerializeField]
     private List<Spawnable> prefabs;
 
+    private List<Spawnable> active;
     private SpawnStore spawnStore;
+
+    public List<Spawnable> Active { get { return active; } }
 
     private void Awake()
     {
         spawnStore = new SpawnStore();
+        active = new List<Spawnable>();
     }
 
     public override bool Initialize()
@@ -141,6 +145,7 @@ public class SpawnManager : Manager
         {
             item = entry.Get();
             item.Spawn();
+            active.Add(item);
             return true;
         }
         else // Store not found for given ID
@@ -183,6 +188,7 @@ public class SpawnManager : Manager
             item.transform.position = new Vector3(0, -100, 0);
             item.Despawn();
             entry.Store(item);
+            active.Remove(item);
             return true;
         }
         else // Store not found for given item
