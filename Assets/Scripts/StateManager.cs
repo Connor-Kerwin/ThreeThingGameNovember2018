@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StateManager : Manager
+public class StateManager : Manager, IMainListener
 {
     private StateMachine<GameState> stateMachine;
 
@@ -12,6 +12,14 @@ public class StateManager : Manager
     {
         stateMachine = new StateMachine<GameState>();
         SetState(GameState.Menu);
+
+        Main main = Main.Instance;
+        main.AddListener(this);
+    }
+
+    public override bool Link()
+    {
+        return true;
     }
 
     public void SetState(GameState state)
@@ -27,5 +35,15 @@ public class StateManager : Manager
     public bool RemoveListener(IStateMachineListener<GameState> listener)
     {
         return stateMachine.RemoveListener(listener);
+    }
+
+    public void OnFinishedInitialization(Main main)
+    {
+        SetState(GameState.Menu);
+    }
+
+    public void OnFinishedLink(Main main)
+    {
+
     }
 }

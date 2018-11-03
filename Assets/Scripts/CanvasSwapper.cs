@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CanvasSwapper : MonoBehaviour, IStateMachineListener<GameState>
+public class CanvasSwapper : MonoBehaviour, IStateMachineListener<GameState>, IMainListener
 {
     [SerializeField]
     private Canvas menuCanvas;
@@ -11,18 +11,15 @@ public class CanvasSwapper : MonoBehaviour, IStateMachineListener<GameState>
     [SerializeField]
     private Canvas deathCanvas;
 
-    void Start()
+    void Awake()
     {
-        // Self-register for state updates
-        Main main = Main.Instance;
-        ManagerStore managerStore = main.ManagerStore;
-        StateManager stateManager = managerStore.Get<StateManager>();
-        stateManager.AddListener(this);
-        
         // Disable canvases initially
         menuCanvas.gameObject.SetActive(false);
         gameCanvas.gameObject.SetActive(false);
         deathCanvas.gameObject.SetActive(false);
+
+        Main main = Main.Instance;
+        main.AddListener(this);
     }
 
     public void OnStateChanged(GameState previous, GameState current)
@@ -47,5 +44,18 @@ public class CanvasSwapper : MonoBehaviour, IStateMachineListener<GameState>
             default:
                 return gameCanvas;
         }
+    }
+
+    public void OnFinishedInitialization(Main main)
+    {
+
+    }
+
+    public void OnFinishedLink(Main main)
+    {
+        // Self-register for state updates
+        ManagerStore managerStore = main.ManagerStore;
+        StateManager stateManager = managerStore.Get<StateManager>();
+        stateManager.AddListener(this);
     }
 }
