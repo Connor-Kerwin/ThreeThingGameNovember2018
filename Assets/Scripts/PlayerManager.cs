@@ -6,8 +6,11 @@ public class PlayerManager : Manager, IStateMachineListener<GameState>
 {
     [SerializeField]
     private Health health;
+    [SerializeField]
+    private Transform player;
 
     public Health Health { get { return health; } }
+    public Transform Player { get { return player; } }
 
     public void OnStateChanged(GameState previous, GameState current)
     {
