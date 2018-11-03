@@ -8,6 +8,9 @@ public class Billboard : MonoBehaviour
 	void Update ()
     {
         Camera cam = Camera.main;
-        transform.LookAt(cam.transform);	
+        Vector3 targetPos = cam.transform.position;
+        targetPos.y = transform.position.y;
+
+        transform.LookAt(targetPos, Vector3.up);
 	}
 }

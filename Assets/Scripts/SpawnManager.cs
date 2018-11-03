@@ -19,7 +19,7 @@ public class SpawnEntry
     {
         this.prefab = prefab;
         pool = new Pool<Spawnable>(Spawn);
-        pool.PreWarm(10, Prewarm);
+        pool.PreWarm(5, Prewarm);
     }
 
     private void Prewarm(Spawnable item)
@@ -178,7 +178,6 @@ public class SpawnManager : Manager
             return false;
         }
     }
-
 
     public bool Store(Spawnable item)
     {

@@ -141,6 +141,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   id: POD
+  spawnType: 0
 --- !u!114 &114712151106508872
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -155,7 +156,7 @@ MonoBehaviour:
   mask:
     serializedVersion: 2
     m_Bits: 512
-  fallTime: 1
+  fallTime: 2
   particles: {fileID: 198822182515830824}
   falling: 0
   targetY: 0
