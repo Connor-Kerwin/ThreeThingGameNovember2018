@@ -1,0 +1,227 @@
+fileFormatVersion: 2
+guid: 4c4c556c713e7b946ac595e4e00e51af
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: "Deckfl\xE4che_1"
+    100002: "Deckfl\xE4che_2"
+    100004: Griff
+    100006: Griff 1
+    100008: Griff 2
+    100010: Griff_Verzierungen
+    100012: Griff_Verzierungen 1
+    100014: Griff_Verzieruung.1
+    100016: //RootNode
+    100018: Klinge
+    100020: Klinge 1
+    100022: Klinge 2
+    100024: Klingen
+    100026: Kugel
+    100028: Kugel 1
+    100030: Leuchten
+    100032: Symmetrie
+    100034: Symmetrie.1
+    100036: "W\xFCrfel"
+    100038: "W\xFCrfel 1"
+    100040: "W\xFCrfel 2"
+    100042: "W\xFCrfel 3"
+    100044: "W\xFCrfel 4"
+    100046: "W\xFCrfel.1"
+    100048: "W\xFCrfel.1 1"
+    100050: "W\xFCrfel.2"
+    100052: "W\xFCrfel.2 1"
+    100054: "W\xFCrfel.2 2"
+    100056: "W\xFCrfel.3"
+    100058: "W\xFCrfel.3 1"
+    100060: "W\xFCrfel.3 2"
+    100062: "W\xFCrfel.4"
+    100064: "W\xFCrfel.4 1"
+    100066: "W\xFCrfel.4 2"
+    100068: "W\xFCrfel.5"
+    400000: "Deckfl\xE4che_1"
+    400002: "Deckfl\xE4che_2"
+    400004: Griff
+    400006: Griff 1
+    400008: Griff 2
+    400010: Griff_Verzierungen
+    400012: Griff_Verzierungen 1
+    400014: Griff_Verzieruung.1
+    400016: //RootNode
+    400018: Klinge
+    400020: Klinge 1
+    400022: Klinge 2
+    400024: Klingen
+    400026: Kugel
+    400028: Kugel 1
+    400030: Leuchten
+    400032: Symmetrie
+    400034: Symmetrie.1
+    400036: "W\xFCrfel"
+    400038: "W\xFCrfel 1"
+    400040: "W\xFCrfel 2"
+    400042: "W\xFCrfel 3"
+    400044: "W\xFCrfel 4"
+    400046: "W\xFCrfel.1"
+    400048: "W\xFCrfel.1 1"
+    400050: "W\xFCrfel.2"
+    400052: "W\xFCrfel.2 1"
+    400054: "W\xFCrfel.2 2"
+    400056: "W\xFCrfel.3"
+    400058: "W\xFCrfel.3 1"
+    400060: "W\xFCrfel.3 2"
+    400062: "W\xFCrfel.4"
+    400064: "W\xFCrfel.4 1"
+    400066: "W\xFCrfel.4 2"
+    400068: "W\xFCrfel.5"
+    2100000: Mat
+    2100002: Mat.1
+    2100004: silver_carpaint
+    2300000: "Deckfl\xE4che_1"
+    2300002: "Deckfl\xE4che_2"
+    2300004: Griff_Verzieruung.1
+    2300006: Klinge 1
+    2300008: Klinge 2
+    2300010: Kugel 1
+    2300012: "W\xFCrfel"
+    2300014: "W\xFCrfel 1"
+    2300016: "W\xFCrfel 3"
+    2300018: "W\xFCrfel 4"
+    2300020: "W\xFCrfel.1"
+    2300022: "W\xFCrfel.1 1"
+    2300024: "W\xFCrfel.2"
+    2300026: "W\xFCrfel.2 1"
+    2300028: "W\xFCrfel.2 2"
+    2300030: "W\xFCrfel.3"
+    2300032: "W\xFCrfel.3 1"
+    2300034: "W\xFCrfel.3 2"
+    2300036: "W\xFCrfel.4"
+    2300038: "W\xFCrfel.4 1"
+    2300040: "W\xFCrfel.4 2"
+    2300042: "W\xFCrfel.5"
+    3300000: "Deckfl\xE4che_1"
+    3300002: "Deckfl\xE4che_2"
+    3300004: Griff_Verzieruung.1
+    3300006: Klinge 1
+    3300008: Klinge 2
+    3300010: Kugel 1
+    3300012: "W\xFCrfel"
+    3300014: "W\xFCrfel 1"
+    3300016: "W\xFCrfel 3"
+    3300018: "W\xFCrfel 4"
+    3300020: "W\xFCrfel.1"
+    3300022: "W\xFCrfel.1 1"
+    3300024: "W\xFCrfel.2"
+    3300026: "W\xFCrfel.2 1"
+    3300028: "W\xFCrfel.2 2"
+    3300030: "W\xFCrfel.3"
+    3300032: "W\xFCrfel.3 1"
+    3300034: "W\xFCrfel.3 2"
+    3300036: "W\xFCrfel.4"
+    3300038: "W\xFCrfel.4 1"
+    3300040: "W\xFCrfel.4 2"
+    3300042: "W\xFCrfel.5"
+    4300000: "W\xFCrfel"
+    4300002: "W\xFCrfel.1"
+    4300004: "W\xFCrfel.4"
+    4300006: "W\xFCrfel.3"
+    4300008: "W\xFCrfel.2"
+    4300010: "W\xFCrfel.4"
+    4300012: "W\xFCrfel.3"
+    4300014: "W\xFCrfel.2"
+    4300016: "W\xFCrfel.5"
+    4300018: "W\xFCrfel.1"
+    4300020: "W\xFCrfel"
+    4300022: "W\xFCrfel.4"
+    4300024: "W\xFCrfel.3"
+    4300026: "W\xFCrfel.2"
+    4300028: Klinge
+    4300030: Klinge
+    4300032: Griff_Verzieruung.1
+    4300034: "Deckfl\xE4che_1"
+    4300036: "Deckfl\xE4che_2"
+    4300038: "W\xFCrfel"
+    4300040: "W\xFCrfel"
+    4300042: Kugel
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

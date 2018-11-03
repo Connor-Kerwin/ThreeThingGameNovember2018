@@ -16,6 +16,7 @@ public class PlayerShoot : MonoBehaviour
 
     public float damage = 10f;
     public float range = 100f;
+    public ParticleSystem muzzleFlash;
 
     public Camera fpsCam;
 
@@ -27,9 +28,10 @@ public class PlayerShoot : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        time += Time.deltaTime;
         if (Input.GetButton("Fire1"))
         {
-            time += Time.deltaTime;
+            
             if (time >= firerate)
             {
                 Shoot();
@@ -43,7 +45,7 @@ public class PlayerShoot : MonoBehaviour
     {
         Vector3 startPos = weaponShootPoint.position;
         Vector3 endPos;
-
+        muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
         {

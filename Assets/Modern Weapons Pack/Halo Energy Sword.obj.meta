@@ -1,0 +1,223 @@
+fileFormatVersion: 2
+guid: e29c612e331c6484cbc9cdf780f5d4b6
+ModelImporter:
+  serializedVersion: 23
+  fileIDToRecycleName:
+    100000: //RootNode
+    100002: Halo_Energy_Sword_Griff2_Griff1_Griff_Kugel_Kugel1
+    100004: Halo_Energy_Sword_Griff2_Griff1_Griff_W_rfel3_W_rfel4
+    100006: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1
+    100008: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_1
+    100010: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_2
+    100012: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_W_rfel1
+    100014: Halo_Energy_Sword_Klingen_Klinge2_Klinge
+    100016: Halo_Energy_Sword_Klingen_Klinge2_Klinge1
+    100018: Halo_Energy_Sword_Leuchten_W_rfel
+    100020: Halo_Energy_Sword_Leuchten_W_rfel2
+    100022: Halo_Energy_Sword_Leuchten_W_rfel_1
+    100024: Halo_Energy_Sword_Leuchten_W_rfel_11
+    100026: Halo_Energy_Sword_Leuchten_W_rfel_2
+    100028: Halo_Energy_Sword_Leuchten_W_rfel_21
+    100030: Halo_Energy_Sword_Leuchten_W_rfel_22
+    100032: Halo_Energy_Sword_Leuchten_W_rfel_3
+    100034: Halo_Energy_Sword_Leuchten_W_rfel_31
+    100036: Halo_Energy_Sword_Leuchten_W_rfel_32
+    100038: Halo_Energy_Sword_Leuchten_W_rfel_4
+    100040: Halo_Energy_Sword_Leuchten_W_rfel_41
+    100042: Halo_Energy_Sword_Leuchten_W_rfel_42
+    100044: Halo_Energy_Sword_Leuchten_W_rfel_5
+    400000: //RootNode
+    400002: Halo_Energy_Sword_Griff2_Griff1_Griff_Kugel_Kugel1
+    400004: Halo_Energy_Sword_Griff2_Griff1_Griff_W_rfel3_W_rfel4
+    400006: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1
+    400008: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_1
+    400010: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_2
+    400012: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_W_rfel1
+    400014: Halo_Energy_Sword_Klingen_Klinge2_Klinge
+    400016: Halo_Energy_Sword_Klingen_Klinge2_Klinge1
+    400018: Halo_Energy_Sword_Leuchten_W_rfel
+    400020: Halo_Energy_Sword_Leuchten_W_rfel2
+    400022: Halo_Energy_Sword_Leuchten_W_rfel_1
+    400024: Halo_Energy_Sword_Leuchten_W_rfel_11
+    400026: Halo_Energy_Sword_Leuchten_W_rfel_2
+    400028: Halo_Energy_Sword_Leuchten_W_rfel_21
+    400030: Halo_Energy_Sword_Leuchten_W_rfel_22
+    400032: Halo_Energy_Sword_Leuchten_W_rfel_3
+    400034: Halo_Energy_Sword_Leuchten_W_rfel_31
+    400036: Halo_Energy_Sword_Leuchten_W_rfel_32
+    400038: Halo_Energy_Sword_Leuchten_W_rfel_4
+    400040: Halo_Energy_Sword_Leuchten_W_rfel_41
+    400042: Halo_Energy_Sword_Leuchten_W_rfel_42
+    400044: Halo_Energy_Sword_Leuchten_W_rfel_5
+    2100000: Halo_Energy_Sword_Griff2_Griff1_Griff_Kugel_Kugel1Mat
+    2100002: Halo_Energy_Sword_Griff2_Griff1_Griff_W_rfel3_W_rfel4Mat
+    2100004: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1Mat
+    2100006: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_1Mat
+    2100008: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_2Mat
+    2100010: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_W_rfel1Mat
+    2100012: Halo_Energy_Sword_Klingen_Klinge2_KlingeMat
+    2100014: Halo_Energy_Sword_Klingen_Klinge2_Klinge1Mat
+    2100016: Halo_Energy_Sword_Leuchten_W_rfelMat
+    2100018: Halo_Energy_Sword_Leuchten_W_rfel2Mat
+    2100020: Halo_Energy_Sword_Leuchten_W_rfel_1Mat
+    2100022: Halo_Energy_Sword_Leuchten_W_rfel_11Mat
+    2100024: Halo_Energy_Sword_Leuchten_W_rfel_2Mat
+    2100026: Halo_Energy_Sword_Leuchten_W_rfel_21Mat
+    2100028: Halo_Energy_Sword_Leuchten_W_rfel_22Mat
+    2100030: Halo_Energy_Sword_Leuchten_W_rfel_3Mat
+    2100032: Halo_Energy_Sword_Leuchten_W_rfel_31Mat
+    2100034: Halo_Energy_Sword_Leuchten_W_rfel_32Mat
+    2100036: Halo_Energy_Sword_Leuchten_W_rfel_4Mat
+    2100038: Halo_Energy_Sword_Leuchten_W_rfel_41Mat
+    2100040: Halo_Energy_Sword_Leuchten_W_rfel_42Mat
+    2100042: Halo_Energy_Sword_Leuchten_W_rfel_5Mat
+    2300000: Halo_Energy_Sword_Griff2_Griff1_Griff_Kugel_Kugel1
+    2300002: Halo_Energy_Sword_Griff2_Griff1_Griff_W_rfel3_W_rfel4
+    2300004: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1
+    2300006: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_1
+    2300008: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_2
+    2300010: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_W_rfel1
+    2300012: Halo_Energy_Sword_Klingen_Klinge2_Klinge
+    2300014: Halo_Energy_Sword_Klingen_Klinge2_Klinge1
+    2300016: Halo_Energy_Sword_Leuchten_W_rfel
+    2300018: Halo_Energy_Sword_Leuchten_W_rfel2
+    2300020: Halo_Energy_Sword_Leuchten_W_rfel_1
+    2300022: Halo_Energy_Sword_Leuchten_W_rfel_11
+    2300024: Halo_Energy_Sword_Leuchten_W_rfel_2
+    2300026: Halo_Energy_Sword_Leuchten_W_rfel_21
+    2300028: Halo_Energy_Sword_Leuchten_W_rfel_22
+    2300030: Halo_Energy_Sword_Leuchten_W_rfel_3
+    2300032: Halo_Energy_Sword_Leuchten_W_rfel_31
+    2300034: Halo_Energy_Sword_Leuchten_W_rfel_32
+    2300036: Halo_Energy_Sword_Leuchten_W_rfel_4
+    2300038: Halo_Energy_Sword_Leuchten_W_rfel_41
+    2300040: Halo_Energy_Sword_Leuchten_W_rfel_42
+    2300042: Halo_Energy_Sword_Leuchten_W_rfel_5
+    3300000: Halo_Energy_Sword_Griff2_Griff1_Griff_Kugel_Kugel1
+    3300002: Halo_Energy_Sword_Griff2_Griff1_Griff_W_rfel3_W_rfel4
+    3300004: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1
+    3300006: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_1
+    3300008: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_2
+    3300010: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_W_rfel1
+    3300012: Halo_Energy_Sword_Klingen_Klinge2_Klinge
+    3300014: Halo_Energy_Sword_Klingen_Klinge2_Klinge1
+    3300016: Halo_Energy_Sword_Leuchten_W_rfel
+    3300018: Halo_Energy_Sword_Leuchten_W_rfel2
+    3300020: Halo_Energy_Sword_Leuchten_W_rfel_1
+    3300022: Halo_Energy_Sword_Leuchten_W_rfel_11
+    3300024: Halo_Energy_Sword_Leuchten_W_rfel_2
+    3300026: Halo_Energy_Sword_Leuchten_W_rfel_21
+    3300028: Halo_Energy_Sword_Leuchten_W_rfel_22
+    3300030: Halo_Energy_Sword_Leuchten_W_rfel_3
+    3300032: Halo_Energy_Sword_Leuchten_W_rfel_31
+    3300034: Halo_Energy_Sword_Leuchten_W_rfel_32
+    3300036: Halo_Energy_Sword_Leuchten_W_rfel_4
+    3300038: Halo_Energy_Sword_Leuchten_W_rfel_41
+    3300040: Halo_Energy_Sword_Leuchten_W_rfel_42
+    3300042: Halo_Energy_Sword_Leuchten_W_rfel_5
+    4300000: Halo_Energy_Sword_Griff2_Griff1_Griff_Kugel_Kugel1
+    4300002: Halo_Energy_Sword_Griff2_Griff1_Griff_W_rfel3_W_rfel4
+    4300004: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1
+    4300006: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_1
+    4300008: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_1_Griff_Verzieruung_1_Deckfl_che_2
+    4300010: Halo_Energy_Sword_Griff2_Griff_Verzierungen1_Griff_Verzierungen_Symmetrie_W_rfel1
+    4300012: Halo_Energy_Sword_Klingen_Klinge2_Klinge
+    4300014: Halo_Energy_Sword_Klingen_Klinge2_Klinge1
+    4300016: Halo_Energy_Sword_Leuchten_W_rfel
+    4300018: Halo_Energy_Sword_Leuchten_W_rfel2
+    4300020: Halo_Energy_Sword_Leuchten_W_rfel_1
+    4300022: Halo_Energy_Sword_Leuchten_W_rfel_11
+    4300024: Halo_Energy_Sword_Leuchten_W_rfel_2
+    4300026: Halo_Energy_Sword_Leuchten_W_rfel_21
+    4300028: Halo_Energy_Sword_Leuchten_W_rfel_22
+    4300030: Halo_Energy_Sword_Leuchten_W_rfel_3
+    4300032: Halo_Energy_Sword_Leuchten_W_rfel_31
+    4300034: Halo_Energy_Sword_Leuchten_W_rfel_32
+    4300036: Halo_Energy_Sword_Leuchten_W_rfel_4
+    4300038: Halo_Energy_Sword_Leuchten_W_rfel_41
+    4300040: Halo_Energy_Sword_Leuchten_W_rfel_42
+    4300042: Halo_Energy_Sword_Leuchten_W_rfel_5
+    2186277476908879412: ImportLogs
+  externalObjects: {}
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+    materialLocation: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    importAnimatedCustomProperties: 0
+    importConstraints: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    preserveHierarchy: 0
+    indexFormat: 0
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+    previousCalculatedGlobalScale: 1
+    hasPreviousCalculatedGlobalScale: 0
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
