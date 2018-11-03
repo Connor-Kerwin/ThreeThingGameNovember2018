@@ -38,15 +38,17 @@ public class Tracer : MonoBehaviour
             {
                 Kill();
             }
+            else
+            {
+                // Move to position
+                float f = dist / length;
+                Vector3 pos = Vector3.Lerp(start, end, f);
+                transform.position = pos;
 
-            // Move to position
-            float f = dist / length;
-            Vector3 pos = Vector3.Lerp(start, end, f);
-            transform.position = pos;
-
-            // Move towards
-            Vector3 dir = end - start;
-            transform.forward = dir;
+                // Move towards
+                Vector3 dir = (end - start).normalized;
+                transform.forward = dir;
+            }
         }
     }
 

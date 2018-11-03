@@ -22,6 +22,7 @@ public class TracerPool
     public void KillTracer(Tracer tracer)
     {
         tracers.Store(tracer);
+        tracer.transform.position = new Vector3(0, -100, 0);
     }
 
     private Tracer Create()
