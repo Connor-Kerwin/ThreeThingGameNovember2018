@@ -184,6 +184,8 @@ public class SpawnManager : Manager
         SpawnEntry entry;
         if (spawnStore.GetStore(item.ID, out entry)) // Store found
         {
+            // NOTE: Possible bug where an object is stored twice?
+
             item.transform.position = new Vector3(0, -100, 0);
             item.Despawn();
             entry.Store(item);

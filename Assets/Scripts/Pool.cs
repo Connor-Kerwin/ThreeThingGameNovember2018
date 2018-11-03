@@ -40,7 +40,10 @@ public class Pool<T>
 
     public void Store(T item)
     {
-        items.Enqueue(item);
+        if (!items.Contains(item))
+        {
+            items.Enqueue(item);
+        }
     }
 
     public void PreWarm(int count, Action<T> processItem)
