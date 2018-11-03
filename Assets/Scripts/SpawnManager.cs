@@ -19,6 +19,12 @@ public class SpawnEntry
     {
         this.prefab = prefab;
         pool = new Pool<Spawnable>(Spawn);
+        pool.PreWarm(10, Prewarm);
+    }
+
+    private void Prewarm(Spawnable item)
+    {
+        item.transform.position = new Vector3(0, -100, 0);
     }
 
     private Spawnable Spawn()

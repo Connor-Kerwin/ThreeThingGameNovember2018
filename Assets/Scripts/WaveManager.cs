@@ -127,8 +127,12 @@ public class WaveManager : Manager
     private List<WaveEntry> waves;
     [SerializeField]
     private float spawnRate = 0.1f;
-    private float spawnTime = 0.0f;
+    [SerializeField]
+    private float spawnRadius = 2.5f;
+    [SerializeField]
+    private float spawnHeight = 2.0f;
 
+    private float spawnTime = 0.0f;
     private int waveIndex;
     private WaveCache waveCache;
 
@@ -172,15 +176,25 @@ public class WaveManager : Manager
         // Start the wave
         StartWave();
     }
-
+    
     private void SpawnEnemies()
     {
         Spawnable enemy;
         if(waveCache.GetNextEnemy(out enemy)) // Was an enemy found?
         {
-            Vector3 pos = new Vector3(Random.Range(0, 10), 0, 0);
+            Vector3 pos = GetSpawnPosition();
             enemy.transform.position = pos;
         }
+    }
+
+    private Vector3 GetSpawnPosition()
+    {
+        float randomAngle = Random.Range(0.0f, 360.0f);
+        float x = spawnRadius * Mathf.Cos(randomAngle);
+        float y = spawnHeight;
+        float z = spawnRadius * Mathf.Sin(randomAngle);
+
+        return new Vector3(x, y, z);
     }
 
     private bool WaveIndexValid(int index)

@@ -43,6 +43,16 @@ public class Pool<T>
         items.Enqueue(item);
     }
 
+    public void PreWarm(int count, Action<T> processItem)
+    {
+        for(int i = 0; i < count; i++)
+        {
+            T item = Create();
+            processItem.Invoke(item);
+            Store(item);
+        }
+    }
+
     private T Create()
     {
         T instance = create.Invoke();
