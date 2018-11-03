@@ -574,7 +574,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 534669902}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -10}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1089,6 +1089,8 @@ MonoBehaviour:
   - {fileID: 114884293831242160, guid: 66f549e41ef95eb41b178f85cb6f1db4, type: 2}
   - {fileID: 114884293831242160, guid: f1631cba0bf53c147a6e88c49a653773, type: 2}
   - {fileID: 114444161872161822, guid: a0b2112cf07b25c47b069b7c83b0ead5, type: 2}
+  - {fileID: 114968776463521806, guid: d9065d8440a5ba2448bce53e74b3f799, type: 2}
+  - {fileID: 114169797098236282, guid: 9d2d907c454d5f5488ec34d9f45ca62a, type: 2}
 --- !u!114 &1634755922
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1102,12 +1104,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   waves:
   - enemies:
-    - id: ENEMY
+    - id: MRPEPE
       count: 10
   spawnRate: 0.1
   enemiesPerCycle: 5
-  spawnRadius: 50
-  spawnHeight: 50
+  spawnRadius: 5
+  spawnHeight: 5
 --- !u!114 &1634755923
 MonoBehaviour:
   m_ObjectHideFlags: 0
