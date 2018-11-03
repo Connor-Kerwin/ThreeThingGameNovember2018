@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class PlayerShoot : MonoBehaviour
+public class PlayerShoot : MonoBehaviour, IStateMachineListener<GameState>
 {
     [SerializeField]
     private Tracer tracerPrefab;
@@ -8,8 +8,18 @@ public class PlayerShoot : MonoBehaviour
     private float weaponVelocity = 1.0f;
     [SerializeField]
     private Transform weaponShootPoint;
+    [SerializeField]
+    private float recoilPerShot = 0.25f;
+    [SerializeField]
+    private float recoilRecovery = 0.1f;
+    [SerializeField]
+    private float maxRecoil = 0.5f;
+    [SerializeField]
+    private Transform weapon;
 
+    private float recoil;
     private TracerPool tracerPool;
+    private bool alive;
 
     public float firerate = 0.2f;
     public float time = 0f;
@@ -23,26 +33,62 @@ public class PlayerShoot : MonoBehaviour
     private void Awake()
     {
         tracerPool = new TracerPool(tracerPrefab);
+        alive = false;
+    }
+
+    void Start()
+    {
+        Main main = Main.Instance;
+        ManagerStore managerStore = main.ManagerStore;
+        StateManager stateManager = managerStore.Get<StateManager>();
+        stateManager.AddListener(this);
     }
 
     // Update is called once per frame
     void Update()
     {
         time += Time.deltaTime;
-        if (Input.GetButton("Fire1"))
+        if (alive) // Only behave when alive
         {
-            
-            if (time >= firerate)
+            if (Input.GetButton("Fire1"))
             {
-                Shoot();
-                time = 0;
+                if (time >= firerate)
+                {
+                    Shoot();
+                    time = 0;
+                }
             }
 
+            // Recover from recoil
+            RecoilRecovery();
+
+            // Apply physical recoil
+            ApplyRecoil();
         }
+    }
+
+    void Recoil()
+    {
+        recoil = Mathf.Clamp(recoil + recoilPerShot, 0.0f, maxRecoil);
+    }
+
+    void RecoilRecovery()
+    {
+        recoil = Mathf.Clamp(recoil - (recoilRecovery * Time.deltaTime), 0.0f, 1000.0f);
+    }
+
+    void ApplyRecoil()
+    {
+        Vector3 localRot = weapon.transform.localRotation.eulerAngles;
+        localRot.x = -recoil;
+
+        weapon.transform.localRotation = Quaternion.Euler(localRot);
     }
 
     void Shoot()
     {
+        Recoil();
+
         Vector3 startPos = weaponShootPoint.position;
         Vector3 endPos;
         muzzleFlash.Play();
@@ -70,5 +116,22 @@ public class PlayerShoot : MonoBehaviour
 
         tracerPool.SpawnTracer(startPos, endPos, weaponVelocity);
 
+    }
+
+    public void OnStateChanged(GameState previous, GameState current)
+    {
+        switch (current)
+        {
+            case GameState.Menu:
+            case GameState.DeathScreen:
+
+                alive = false;
+
+                break;
+            case GameState.Playing:
+
+                alive = true;
+                break;
+        }
     }
 }
