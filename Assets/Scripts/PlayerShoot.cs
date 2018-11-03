@@ -2,6 +2,15 @@
 
 public class PlayerShoot : MonoBehaviour
 {
+    [SerializeField]
+    private Tracer tracerPrefab;
+    [SerializeField]
+    private float weaponVelocity = 1.0f;
+    [SerializeField]
+    private Transform weaponShootPoint;
+
+    private TracerPool tracerPool;
+
     public float firerate = 0.2f;
     public float time = 0f;
 
@@ -9,6 +18,11 @@ public class PlayerShoot : MonoBehaviour
     public float range = 100f;
 
     public Camera fpsCam;
+
+    private void Awake()
+    {
+        tracerPool = new TracerPool(tracerPrefab);
+    }
 
     // Update is called once per frame
     void Update()
@@ -27,9 +41,14 @@ public class PlayerShoot : MonoBehaviour
 
     void Shoot()
     {
+        Vector3 startPos = weaponShootPoint.position;
+        Vector3 endPos;
+
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
         {
+            endPos = hit.point;
+
             Debug.Log(hit.transform.name);
             Transform parent = hit.transform.root;
             if (parent != null)
@@ -41,7 +60,13 @@ public class PlayerShoot : MonoBehaviour
                     enemy.TakeDamage(damage);
                 }
             }
-
         }
+        else // Nothing was hit, assume end point is far away
+        {
+            endPos = transform.position + transform.forward * 100.0f;
+        }
+
+        tracerPool.SpawnTracer(startPos, endPos, weaponVelocity);
+
     }
 }
