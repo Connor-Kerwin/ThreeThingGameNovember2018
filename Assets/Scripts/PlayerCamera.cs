@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerCamera : MonoBehaviour
+public class PlayerCamera : MonoBehaviour, IStateMachineListener<GameState>
 {
     [SerializeField]
     private float turnRate = 90.0f;
@@ -11,9 +11,29 @@ public class PlayerCamera : MonoBehaviour
 
     private float rX, rY;
 
-	// Use this for initialization
-	void Start () {
-		
+    public void OnStateChanged(GameState previous, GameState current)
+    {
+        switch (current)
+        {
+            case GameState.Menu:
+            case GameState.DeathScreen:
+                Cursor.lockState = CursorLockMode.None;
+                Cursor.visible = true;
+                break;
+            case GameState.Playing:
+                Cursor.lockState = CursorLockMode.Locked;
+                Cursor.visible = false;
+                break;
+        }
+    }
+
+    // Use this for initialization
+    void Start ()
+    {
+        Main main = Main.Instance;
+        ManagerStore managerStore = main.ManagerStore;
+        StateManager stateManager = managerStore.Get<StateManager>();
+        stateManager.AddListener(this);
 	}
 	
 	// Update is called once per frame
