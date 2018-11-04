@@ -204,11 +204,12 @@ public class WaveManager : Manager, IStateMachineListener<GameState>
 
     private void RemoveActiveEnemies()
     {
-        List<Spawnable> active = spawnManager.Active;
+        List<Spawnable> active = spawnManager.GetActiveCopy();
+
         int count = active.Count;
-        for (int i = count - 1; i >= 0; i--) // Backwards iteration due to deletion
+        for (int i = 0; i < count; i++)
         {
-            Spawnable s = active[0];
+            Spawnable s = active[i];
             if (s.SpawnType == SpawnType.Enemy)
             {
                 spawnManager.Store(s);

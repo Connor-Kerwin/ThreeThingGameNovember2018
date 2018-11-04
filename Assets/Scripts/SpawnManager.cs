@@ -102,6 +102,17 @@ public class SpawnManager : Manager
 
     public List<Spawnable> Active { get { return active; } }
 
+    public List<Spawnable> GetActiveCopy()
+    {
+        List<Spawnable> copy = new List<Spawnable>();
+        foreach(Spawnable s in active)
+        {
+            copy.Add(s);
+        }
+
+        return copy;
+    }
+
     private void Awake()
     {
         spawnStore = new SpawnStore();
