@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 
 public class PlayerShoot : MonoBehaviour, IStateMachineListener<GameState>
 {
@@ -16,6 +17,11 @@ public class PlayerShoot : MonoBehaviour, IStateMachineListener<GameState>
     private float maxRecoil = 0.5f;
     [SerializeField]
     private Transform weapon;
+    [SerializeField]
+    private float MuzzleFlashTime = 0.05f;
+
+    [SerializeField]
+    private Transform muzzleFlashObject;
 
     private float recoil;
     private TracerPool tracerPool;
@@ -55,6 +61,8 @@ public class PlayerShoot : MonoBehaviour, IStateMachineListener<GameState>
                 if (time >= firerate)
                 {
                     Shoot();
+                    muzzleFlashObject.gameObject.SetActive(true);
+                    StartCoroutine(Flash());
                     time = 0;
                 }
             }
@@ -65,6 +73,12 @@ public class PlayerShoot : MonoBehaviour, IStateMachineListener<GameState>
             // Apply physical recoil
             ApplyRecoil();
         }
+    }
+
+    private IEnumerator Flash()
+    {
+        yield return new WaitForSeconds(MuzzleFlashTime);
+        muzzleFlashObject.gameObject.SetActive(false);
     }
 
     void Recoil()
@@ -91,7 +105,7 @@ public class PlayerShoot : MonoBehaviour, IStateMachineListener<GameState>
 
         Vector3 startPos = weaponShootPoint.position;
         Vector3 endPos;
-        muzzleFlash.Play();
+        //muzzleFlash.Play();
         RaycastHit hit;
         if (Physics.Raycast(fpsCam.transform.position, fpsCam.transform.forward, out hit))
         {

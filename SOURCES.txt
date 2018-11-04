@@ -1,0 +1,6 @@
+Font sources:
+https://www.1001fonts.com/bulky-pixels-font.html
+https://www.1001fonts.com/orange-kid-font.html
+https://www.1001fonts.com/chava-font.html
+Muzzle flash:
+https://doc.babylonjs.com/resources/playground_textures
