@@ -9,6 +9,8 @@ public class PlayerManager : Manager, IStateMachineListener<GameState>
     [SerializeField]
     private Transform player;
 
+    private StateManager stateManager;
+
     public Health Health { get { return health; } }
     public Transform Player { get { return player; } }
 
@@ -30,7 +32,7 @@ public class PlayerManager : Manager, IStateMachineListener<GameState>
     {
         Main main = Main.Instance;
         ManagerStore managerStore = main.ManagerStore;
-        StateManager stateManager = managerStore.Get<StateManager>();
+        stateManager = managerStore.Get<StateManager>();
         stateManager.AddListener(this);
 
         return true;
@@ -52,7 +54,9 @@ public class PlayerManager : Manager, IStateMachineListener<GameState>
         if(!health.IsAlive)
         {
             Debug.Log("PLAYER IS DEAD");
-            // PLAYER DEAD
+
+            // Transition to the death screen
+            stateManager.SetState(GameState.DeathScreen);
         }
     }
 }

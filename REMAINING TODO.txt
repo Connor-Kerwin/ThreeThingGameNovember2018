@@ -1,4 +1,4 @@
-Fix camera movement in menu
+DONE Fix camera movement in menu
 Add splash screen
 Tweak enemies and add waves
 Add highscore display
