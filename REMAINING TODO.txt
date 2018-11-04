@@ -1,7 +1,7 @@
 DONE	Fix camera movement in menu
 Add splash screen
 Tweak enemies and add waves
-Add highscore display
+DONE (SIMPLE)	Add highscore display
 Improve weapon details, flash muzzle changes, etc. Remove projectile shadow
 Improve individual enemies (maybe add boss)
 DONE	Make game change to death upon actual death
