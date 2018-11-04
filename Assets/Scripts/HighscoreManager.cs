@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
 
+public interface IHighscoreListener
+{
+    void OnHighscoresChanged(List<HighscoreEntry> entries);
+}
+
 [System.Serializable]
 public class HighscoreEntry
 {
@@ -18,9 +23,27 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
     private List<HighscoreEntry> entries;
 
     private int scoreEntries = 5;
+    private List<IHighscoreListener> listeners;
+
+    public bool AddListener(IHighscoreListener listener)
+    {
+        if (!listeners.Contains(listener))
+        {
+            listeners.Add(listener);
+            return true;
+        }
+        return false;
+    }
+
+    public bool RemoveListener(IHighscoreListener listener)
+    {
+        return listeners.Remove(listener);
+    }
 
     private void Awake()
     {
+        listeners = new List<IHighscoreListener>();
+
         InitScores();
         FetchScores();
     }
@@ -63,10 +86,20 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
         entries.Add(entry);
 
         // Order the entries and remove the lowest scoring entry
-        entries.OrderBy(v => v.Score);
+        entries = entries.OrderBy(v => v.Score).ToList();
         entries.RemoveAt(0);
+        entries.Reverse();
 
-        if(autoSave)
+
+        Debug.Log("UPDATING HIGHSCORES");
+        // Notify other listeners that the scores have changed
+        foreach (IHighscoreListener listener in listeners)
+        {
+            listener.OnHighscoresChanged(entries);
+        }
+
+        // Should the scores be saved?
+        if (autoSave)
         {
             SaveScores();
         }

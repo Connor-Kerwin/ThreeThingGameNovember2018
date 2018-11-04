@@ -22,9 +22,10 @@ public class PlayerManager : Manager, IStateMachineListener<GameState>
             case GameState.DeathScreen:
             case GameState.Playing:
 
-            ResetHealth();
+                // Reset the health when state changes, works well enough
+                ResetHealth();
 
-            break;
+                break;
         }
     }
 
@@ -51,10 +52,8 @@ public class PlayerManager : Manager, IStateMachineListener<GameState>
 
     private void CheckHealth()
     {
-        if(!health.IsAlive)
+        if(!health.IsAlive) // Has the player died?
         {
-            Debug.Log("PLAYER IS DEAD");
-
             // Transition to the death screen
             stateManager.SetState(GameState.DeathScreen);
         }
