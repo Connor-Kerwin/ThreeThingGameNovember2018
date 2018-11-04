@@ -1,6 +1,6 @@
 Make enemies appear/disappear while in/out of pods
 DONE	Fix camera movement in menu
-Add splash screen
+DONE Add splash screen
 Tweak enemies and add waves
 DONE (SIMPLE)	Add highscore display
 Improve weapon details, flash muzzle changes, etc. Remove projectile shadow

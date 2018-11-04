@@ -2370,6 +2370,7 @@ GameObject:
   - component: {fileID: 1117283622}
   - component: {fileID: 1117283621}
   - component: {fileID: 1117283620}
+  - component: {fileID: 1117283623}
   m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
@@ -2410,6 +2411,8 @@ MonoBehaviour:
   magnitude: 1
   moveRate: 1
   moveMagnitude: 1
+  time: 0
+  moveTime: 0
 --- !u!114 &1117283621
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2444,6 +2447,23 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1117283618}
   m_CullTransparentMesh: 0
+--- !u!114 &1117283623
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1117283618}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30787a4d61f05a4781370781718fff4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sprites:
+  - {fileID: 21300000, guid: 774b2045bc918cb4cad3770ce2bc331a, type: 3}
+  - {fileID: 21300000, guid: 2882858db82e93047934c830e1006b1f, type: 3}
+  - {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  targetImage: {fileID: 1117283621}
+  rate: 0.1
 --- !u!1 &1135987092
 GameObject:
   m_ObjectHideFlags: 0
