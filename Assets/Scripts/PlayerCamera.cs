@@ -10,6 +10,7 @@ public class PlayerCamera : MonoBehaviour, IStateMachineListener<GameState>
     private float yLimit = 70.0f;
 
     private float rX, rY;
+    private bool alive;
 
     public void OnStateChanged(GameState previous, GameState current)
     {
@@ -19,10 +20,12 @@ public class PlayerCamera : MonoBehaviour, IStateMachineListener<GameState>
             case GameState.DeathScreen:
                 Cursor.lockState = CursorLockMode.None;
                 Cursor.visible = true;
+                alive = false;
                 break;
             case GameState.Playing:
                 Cursor.lockState = CursorLockMode.Locked;
                 Cursor.visible = false;
+                alive = true;
                 break;
         }
     }
@@ -34,20 +37,24 @@ public class PlayerCamera : MonoBehaviour, IStateMachineListener<GameState>
         ManagerStore managerStore = main.ManagerStore;
         StateManager stateManager = managerStore.Get<StateManager>();
         stateManager.AddListener(this);
+        alive = false;
 	}
 	
 	// Update is called once per frame
 	void Update ()
     {
-        // Fetch axes
-        float x = Input.GetAxis("Mouse X") * Time.deltaTime * turnRate;
-        float y = Input.GetAxis("Mouse Y") * Time.deltaTime * turnRate;
+        if (alive) // Only move camera if alive
+        {
+            // Fetch axes
+            float x = Input.GetAxis("Mouse X") * Time.deltaTime * turnRate;
+            float y = Input.GetAxis("Mouse Y") * Time.deltaTime * turnRate;
 
-        // CLAMP
-        rX += x;
-        rY = Mathf.Clamp(rY + y, -yLimit, yLimit);
+            // CLAMP
+            rX += x;
+            rY = Mathf.Clamp(rY + y, -yLimit, yLimit);
 
-        // Apply rotation
-        transform.rotation = Quaternion.Euler(-rY, rX, 0);
+            // Apply rotation
+            transform.rotation = Quaternion.Euler(-rY, rX, 0);
+        }
     }
 }

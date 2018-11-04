@@ -58,7 +58,7 @@ public class Pod : MonoBehaviour
 
     public void Launch(Vector3 position)
     {
-        particles.Play();
+        particles.Play(); 
 
         startY = position.y;
         falling = true;
