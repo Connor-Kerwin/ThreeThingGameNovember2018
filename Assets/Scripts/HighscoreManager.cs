@@ -68,7 +68,8 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
 
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.T))
+        // CLEAR SCORES
+        if(Input.GetKeyDown(KeyCode.F6))
         {
             InitScores();
         }
