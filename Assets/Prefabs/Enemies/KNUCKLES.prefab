@@ -193,6 +193,7 @@ MonoBehaviour:
   rangedAttackRate: 0.5
   moveSpeed: 3
   flipOnSpawn: 1
+  score: 10
 --- !u!114 &114968776463521806
 MonoBehaviour:
   m_ObjectHideFlags: 1

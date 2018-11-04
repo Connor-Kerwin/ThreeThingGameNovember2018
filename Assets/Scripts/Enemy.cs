@@ -28,16 +28,20 @@ public class Enemy : MonoBehaviour
     private float moveSpeed = 0.5f;
     [SerializeField]
     private bool flipOnSpawn = true;
+    [SerializeField]
+    private int score = 0;
 
     private float rangedAttackTime = 0.0f;
     private bool alive;
     private PlayerManager playerManager;
+    private ScoreManager scoreManager;
 
     void Start()
     {
         Main main = Main.Instance;
         ManagerStore managerStore = main.ManagerStore;
         playerManager = managerStore.Get<PlayerManager>();
+        scoreManager = managerStore.Get<ScoreManager>();
     }
 
     private void OnCargoDetached(object parent)
@@ -108,8 +112,14 @@ public class Enemy : MonoBehaviour
         // Has the enemy died?
         if(!AliveCheck())
         {
+            ApplyScore();
             Die();
         }
+    }
+
+    private void ApplyScore()
+    {
+        scoreManager.AddScore(score);
     }
 
     public void Spawn()
