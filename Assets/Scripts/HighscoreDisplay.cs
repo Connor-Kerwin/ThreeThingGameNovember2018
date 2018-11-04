@@ -20,6 +20,7 @@ public class HighscoreDisplay : MonoBehaviour, IHighscoreListener
             HighscoreEntry entry = entries[i];
             VisualHighscore display = highscores[i];
             display.SetScore(entry.Score.ToString());
+            display.SetName(entry.Name);
         }
     }
 

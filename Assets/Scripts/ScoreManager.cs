@@ -6,10 +6,13 @@ public class ScoreManager : Manager, IStateMachineListener<GameState>
 {
     [SerializeField]
     private int score;
+    [SerializeField]
+    private string nameValue;
 
     private HighscoreManager highscoreManager;
 
     public int Score { get { return score; } }
+    public string Name { get { return nameValue; } set { nameValue = value; } }
 
     public override bool Link()
     {
@@ -56,7 +59,7 @@ public class ScoreManager : Manager, IStateMachineListener<GameState>
 
                 break;
             case GameState.DeathScreen:
-                highscoreManager.InsertScore(score, true);
+                highscoreManager.InsertScore(score, nameValue, true);
                 break;
         }
     }

@@ -13,8 +13,17 @@ public class HighscoreEntry
 {
     [SerializeField]
     private int score;
+    [SerializeField]
+    private string name;
 
     public int Score { get { return score; }  set { score = value; } }
+    public string Name { get { return name; } set { name = value; } }
+
+    public HighscoreEntry(int score, string name)
+    {
+        this.score = score;
+        this.name = name;
+    }
 }
 
 public class HighscoreManager : Manager, IStateMachineListener<GameState>
@@ -44,19 +53,24 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
     {
         listeners = new List<IHighscoreListener>();
 
-        InitScores();
-        FetchScores();
+        // Initially populate scores
+        for(int i = 0; i < scoreEntries; i++)
+        {
+            entries.Add(new HighscoreEntry(0, ""));
+        }
+
+        // Did scores fail to fetch?
+        if(!FetchScores())
+        {
+            InitScores();
+        }
     }
 
     void Update()
     {
         if(Input.GetKeyDown(KeyCode.T))
         {
-            PlayerPrefs.DeleteAll();
-            foreach(HighscoreEntry entry in entries)
-            {
-                entry.Score = 0;
-            }
+            InitScores();
         }
     }
 
@@ -74,15 +88,40 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
     {
         for (int i = 0; i < scoreEntries; i++)
         {
-            entries.Add(new HighscoreEntry());
+            HighscoreEntry entry = entries[i];
+            entry.Score = GetScoreForEntry(i);
+            entry.Name = GetRandomName();
         }
     }
 
-    public void InsertScore(int score, bool autoSave)
+    private string GetRandomName()
+    {
+        // Inefficient but rarely called so it's fine.
+        string[] names = new string[]
+        {
+            "NAME_01",
+            "NAME_02",
+            "NAME_03",
+            "NAME_04",
+            "NAME_05",
+            "NAME_06",
+            "NAME_07",
+            "NAME_08",
+        };
+
+        int r = Random.Range(0, names.Length);
+        return names[r];
+    }
+
+    private int GetScoreForEntry(int index)
+    {
+        return (index + 1) * 100;
+    }
+
+    public void InsertScore(int score, string name, bool autoSave)
     {
         // Add an entry with the given score
-        HighscoreEntry entry = new HighscoreEntry();
-        entry.Score = score;
+        HighscoreEntry entry = new HighscoreEntry(score, name);
         entries.Add(entry);
 
         // Order the entries and remove the lowest scoring entry
@@ -90,8 +129,6 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
         entries.RemoveAt(0);
         entries.Reverse();
 
-
-        Debug.Log("UPDATING HIGHSCORES");
         // Notify other listeners that the scores have changed
         foreach (IHighscoreListener listener in listeners)
         {
@@ -111,19 +148,29 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
         {
             HighscoreEntry entry = entries[i];
             PlayerPrefs.SetInt("score_" + i.ToString(), entry.Score);
+            PlayerPrefs.SetString("name_" + i.ToString(), entry.Name);
         }
     }
 
-    private void FetchScores()
+    private bool FetchScores()
     {
+        bool flag = true;
+
         for (int i = 0; i < scoreEntries; i++)
         {
             int result = PlayerPrefs.GetInt("score_" + i.ToString(), -1);
-            if (result != -1)
+            string name = PlayerPrefs.GetString("name_" + i.ToString(), "INVALID_NAME_VALUE");
+            if (result != -1 && name != "INVALID_NAME_VALUE") // Is name and score valid?
             {
-                InsertScore(result, false);
+                InsertScore(result, name, false);
+            }
+            else // Score missing
+            {
+                flag = false;
             }
         }
+
+        return flag;
     }
 
     public void OnStateChanged(GameState previous, GameState current)
