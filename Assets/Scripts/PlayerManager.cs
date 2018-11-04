@@ -8,6 +8,8 @@ public class PlayerManager : Manager, IStateMachineListener<GameState>
     private Health health;
     [SerializeField]
     private Transform player;
+    [SerializeField]
+    private ScreenFlash flash;
 
     private StateManager stateManager;
 
@@ -48,6 +50,8 @@ public class PlayerManager : Manager, IStateMachineListener<GameState>
     {
         health.TakeDamage(damage);
         CheckHealth();
+
+        flash.Flash();
     }
 
     private void CheckHealth()
