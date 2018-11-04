@@ -1096,7 +1096,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 4c4c556c713e7b946ac595e4e00e51af, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 400016, guid: 4c4c556c713e7b946ac595e4e00e51af, type: 3}
       propertyPath: m_LocalScale.x
@@ -2494,6 +2494,47 @@ CanvasRenderer:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 949785968}
   m_CullTransparentMesh: 0
+--- !u!1 &953420072
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 953420073}
+  - component: {fileID: 953420074}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &953420073
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 953420072}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.9558056, y: 1.0313901, z: 3.2092936}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &953420074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 953420072}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e40fce5d5e5d9f94a810ed59767b3b69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 1758504573}
 --- !u!1 &968418524
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,7 +2819,7 @@ GameObject:
   - component: {fileID: 1044565656}
   - component: {fileID: 1044565655}
   - component: {fileID: 1044565653}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Quad
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2905,7 +2946,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_LocalScale.x
@@ -2918,6 +2959,10 @@ Prefab:
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_LocalScale.z
       value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
@@ -8703,31 +8748,46 @@ MonoBehaviour:
   waves:
   - enemies:
     - id: SANIC
+      count: 2
+    - id: TROLLFACE
+      count: 3
+  - enemies:
+    - id: SANIC
       count: 3
     - id: TROLLFACE
-      count: 5
+      count: 4
+    - id: SANIC
+      count: 3
   - enemies:
+    - id: TROLLFACE
+      count: 5
     - id: SANIC
       count: 5
+    - id: KNUCKLES
+      count: 10
+  - enemies:
+    - id: KNUCKLES
+      count: 5
+    - id: KNUCKLES
+      count: 7
+    - id: TROLLFACE
+      count: 5
+    - id: SANIC
+      count: 7
+  - enemies:
+    - id: SANIC
+      count: 1
     - id: TROLLFACE
       count: 10
     - id: SANIC
-      count: 5
-  - enemies:
-    - id: SANIC
-      count: 5
+      count: 2
     - id: TROLLFACE
+      count: 3
+    - id: SANIC
       count: 10
   - enemies:
-    - id: SANIC
-      count: 5
-    - id: TROLLFACE
-      count: 10
-  - enemies:
-    - id: SANIC
-      count: 5
-    - id: TROLLFACE
-      count: 10
+    - id: KNUCKLES
+      count: 100
   spawnRate: 1
   enemiesPerCycle: 10
   spawnRadius: 50
