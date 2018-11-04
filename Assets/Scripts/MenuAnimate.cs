@@ -13,8 +13,10 @@ public class MenuAnimate : MonoBehaviour
     private float moveRate = 1.0f;
     [SerializeField]
     private float moveMagnitude = 1.0f;
-
+    
+    [SerializeField]
     private float time = 0.0f;
+    [SerializeField]
     private float moveTime = 0.0f;
     private Vector3 cachedPos;
 
