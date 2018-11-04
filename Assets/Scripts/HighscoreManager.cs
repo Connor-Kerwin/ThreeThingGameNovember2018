@@ -25,6 +25,18 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
         FetchScores();
     }
 
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.T))
+        {
+            PlayerPrefs.DeleteAll();
+            foreach(HighscoreEntry entry in entries)
+            {
+                entry.Score = 0;
+            }
+        }
+    }
+
     public override bool Link()
     {
         Main main = Main.Instance;
@@ -43,7 +55,7 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
         }
     }
 
-    public void InsertScore(int score)
+    public void InsertScore(int score, bool autoSave)
     {
         // Add an entry with the given score
         HighscoreEntry entry = new HighscoreEntry();
@@ -53,6 +65,20 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
         // Order the entries and remove the lowest scoring entry
         entries.OrderBy(v => v.Score);
         entries.RemoveAt(0);
+
+        if(autoSave)
+        {
+            SaveScores();
+        }
+    }
+
+    private void SaveScores()
+    {
+        for(int i = 0; i < scoreEntries; i++)
+        {
+            HighscoreEntry entry = entries[i];
+            PlayerPrefs.SetInt("score_" + i.ToString(), entry.Score);
+        }
     }
 
     private void FetchScores()
@@ -62,7 +88,7 @@ public class HighscoreManager : Manager, IStateMachineListener<GameState>
             int result = PlayerPrefs.GetInt("score_" + i.ToString(), -1);
             if (result != -1)
             {
-                InsertScore(result);
+                InsertScore(result, false);
             }
         }
     }

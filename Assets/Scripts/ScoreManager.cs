@@ -56,7 +56,7 @@ public class ScoreManager : Manager, IStateMachineListener<GameState>
 
                 break;
             case GameState.DeathScreen:
-                highscoreManager.InsertScore(score);
+                highscoreManager.InsertScore(score, true);
                 break;
         }
     }
