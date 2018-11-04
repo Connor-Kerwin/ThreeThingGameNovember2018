@@ -27,6 +27,7 @@ public class Pod : MonoBehaviour
         this.target = target;
         target.parent = transform;
         target.SendMessage("OnCargoAttached", this, SendMessageOptions.DontRequireReceiver);
+        target.SendMessage("ToggleOff", SendMessageOptions.DontRequireReceiver);
     }
 
     private void Land()
@@ -41,6 +42,7 @@ public class Pod : MonoBehaviour
     public void Kill()
     {
         target.SendMessage("OnCargoDetached", this, SendMessageOptions.DontRequireReceiver);
+        target.SendMessage("ToggleOn", SendMessageOptions.DontRequireReceiver);
 
         time = 0.0f;
         falling = false;

@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4462372586319472}
   - component: {fileID: 114211926904932620}
+  - component: {fileID: 114590980447695850}
   m_Layer: 0
   m_Name: SCREEN_FACING_QUAD
   m_TagString: Untagged
@@ -82,7 +83,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1495888066304722}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -11.982835, y: 1.22401604e-17, z: -27.562391}
+  m_LocalPosition: {x: 1.2688267, y: -0.45, z: 6.3726387}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4462372586319472}
@@ -96,7 +97,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1345847843281672}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.054, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4265375145758968}
@@ -179,6 +180,20 @@ MonoBehaviour:
   moveSpeed: 5
   flipOnSpawn: 1
   score: 50
+--- !u!114 &114590980447695850
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345847843281672}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08c2818ea0d86cc4aad18c38097841e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  randomOffsetMin: 0.01
+  randomOffsetMax: 0.05
+  flipRate: 0.1
 --- !u!114 &114968776463521806
 MonoBehaviour:
   m_ObjectHideFlags: 1

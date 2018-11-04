@@ -34,6 +34,16 @@ public class Spawnable : MonoBehaviour {
     public string ID { get { return id; } }
     public SpawnType SpawnType { get { return spawnType; } }
 
+    public void ToggleOn()
+    {
+        //gameObject.SetActive(true);
+    }
+
+    public void ToggleOff()
+    {
+        //gameObject.SetActive(false);
+    }
+
     public void Spawn()
     {
         if (OnSpawn != null)
