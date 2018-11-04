@@ -7,6 +7,8 @@ public class ScoreManager : Manager, IStateMachineListener<GameState>
     [SerializeField]
     private int score;
 
+    private HighscoreManager highscoreManager;
+
     public int Score { get { return score; } }
 
     public override bool Link()
@@ -15,6 +17,8 @@ public class ScoreManager : Manager, IStateMachineListener<GameState>
         ManagerStore managerStore = main.ManagerStore;
         StateManager stateManager = managerStore.Get<StateManager>();
         stateManager.AddListener(this);
+
+        highscoreManager = managerStore.Get<HighscoreManager>();
 
         return base.Link();
     }
@@ -37,7 +41,7 @@ public class ScoreManager : Manager, IStateMachineListener<GameState>
 
     private bool ScoreValid(int value)
     {
-        return value > 0;
+        return value >= 0;
     }
 
     public void OnStateChanged(GameState previous, GameState current)
@@ -47,8 +51,12 @@ public class ScoreManager : Manager, IStateMachineListener<GameState>
             case GameState.Menu:
             case GameState.Playing:
 
+                // Change score to zero
                 SetScore(0);
 
+                break;
+            case GameState.DeathScreen:
+                highscoreManager.InsertScore(score);
                 break;
         }
     }

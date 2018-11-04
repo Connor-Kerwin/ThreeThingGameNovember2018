@@ -32,8 +32,13 @@ public class Pod : MonoBehaviour
     private void Land()
     {
         target.parent = null;
+
+        // Set the target position to self
+        target.transform.position = transform.position;
+
         target.SendMessage("OnCargoDetached", this, SendMessageOptions.DontRequireReceiver);
         target = null;
+        time = 0.0f;
 
         particles.Stop();
 

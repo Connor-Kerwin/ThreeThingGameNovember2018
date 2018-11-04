@@ -15,6 +15,7 @@ public class HealthBar : MonoBehaviour {
     {
         
     }
+
     private void Update()
     {
         Main main = Main.Instance;

@@ -206,10 +206,10 @@ public class WaveManager : Manager, IStateMachineListener<GameState>
     {
         List<Spawnable> active = spawnManager.Active;
         int count = active.Count;
-        for(int i = count-1; i >= 0; i--) // Backwards iteration due to deletion
+        for (int i = count - 1; i >= 0; i--) // Backwards iteration due to deletion
         {
-            Spawnable s = active[i];
-            if(s.SpawnType == SpawnType.Enemy)
+            Spawnable s = active[0];
+            if (s.SpawnType == SpawnType.Enemy)
             {
                 spawnManager.Store(s);
             }
